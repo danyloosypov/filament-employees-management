@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\EmployeeResource\Pages;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
+use App\Filament\Resources\EmployeeResource\RelationManagers\TasksRelationManager;
 use App\Models\Employee;
 use Filament\Forms;
 use Filament\Forms\Components\BelongsToSelect;
@@ -21,6 +22,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class EmployeeResource extends Resource
 {
     protected static ?string $model = Employee::class;
+    protected static ?string $recordTitleAttribute = 'firstname';
+
+    protected static ?string $navigationGroup = 'Employees';
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
@@ -97,7 +101,7 @@ class EmployeeResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            TasksRelationManager::class,
         ];
     }
     

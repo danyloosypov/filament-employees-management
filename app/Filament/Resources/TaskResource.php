@@ -21,6 +21,9 @@ class TaskResource extends Resource
 {
     protected static ?string $model = Task::class;
 
+    protected static ?string $navigationGroup = 'Employees';
+
+    protected static ?string $recordTitleAttribute = 'title';
     protected static ?string $navigationIcon = 'heroicon-s-pencil';
 
     public static function form(Form $form): Form
